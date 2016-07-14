@@ -8,7 +8,7 @@ const int PIN_BRAKEB = 8;
 const int PIN_DIRA = 12;
 const int PIN_DIRB = 13;
 
-typedef void (*then_cb_t)();
+typedef void (*ThenCb)();
 
 enum MotorChannel { A, B };
 enum MotorDirection { FORWARDS, BACKWARDS };
@@ -18,7 +18,7 @@ class Motor {
     MotorDirection direction;
     unsigned long runSince;
     int runForMs;
-    then_cb_t thenCallback;
+    ThenCb thenCallback;
 
     int runPin();
     int directionPin();
@@ -30,7 +30,7 @@ class Motor {
     void start(byte);
     void stop();
     void update();
-    void then(then_cb_t);
+    void then(ThenCb);
     void changeDirection();
 };
 

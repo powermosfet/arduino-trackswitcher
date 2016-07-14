@@ -1,5 +1,4 @@
 #include <Arduino.h>
-
 #include "motor.h"
 
 Motor::Motor(MotorChannel channel, MotorDirection direction) {
@@ -52,7 +51,7 @@ int Motor::brakePin() {
   return (this->channel == A)? PIN_BRAKEA : PIN_BRAKEB;
 }
 
-void Motor::then(then_cb_t callback) {
+void Motor::then(ThenCb callback) {
   this->thenCallback = callback;
 }
 
