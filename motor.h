@@ -26,7 +26,7 @@ class Motor {
     
   public:
     Motor(MotorChannel, MotorDirection);
-    Motor *runFor(int, byte);
+    Motor& runFor(int, byte);
     void start(byte);
     void stop();
     void update();

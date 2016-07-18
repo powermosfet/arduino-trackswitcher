@@ -21,11 +21,11 @@ void Motor::update() {
   }
 }
 
-Motor *Motor::runFor(int runFor, byte speed) {
+Motor& Motor::runFor(int runFor, byte speed) {
   this->runForMs = runFor;
   this->runSince = millis();
   this->start(speed);
-  return this;
+  return *this;
 }
 
 void Motor::start(byte speed) {
