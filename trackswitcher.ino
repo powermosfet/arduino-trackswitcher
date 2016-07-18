@@ -7,7 +7,7 @@
 
 const int PIN_OBSTACLE_SENSOR = 6;
 const int MSEC_MOTOR_RUN_PERIOD = 1000;
-const int MOTOR_SPEED = 200;
+const int MOTOR_SPEED = 255;
 
 Motor *switcherMotor;
 Pin *irSensor;
@@ -23,7 +23,7 @@ void runMotor() {
 void setup() {
   switcherMotor = new Motor(A, FORWARDS);
   irSensor = new Pin(PIN_OBSTACLE_SENSOR);
-  irSensor->onEdge(RISING_EDGE, runMotor);
+  irSensor->onEdge(FALLING_EDGE, runMotor);
 }
 
 void loop() {
