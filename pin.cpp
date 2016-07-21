@@ -6,7 +6,7 @@ namespace ts {
     this->pinN = pinN;
   }
 
-  void Pin::onEdge(Edge edge, PinCb callback) {
+  void Pin::onEdge(int edge, PinCb callback) {
     this->edge = edge;
     this->callback = callback;
   }
@@ -14,8 +14,8 @@ namespace ts {
   void Pin::update() {
     bool newValue = digitalRead(this->pinN);
     if(newValue != this->oldValue) {
-      if((this->edge == RISE  &&  newValue) ||
-          (this->edge == FALL && !newValue)) {
+      if((this->edge == RISING  &&  newValue) ||
+          (this->edge == FALLING && !newValue)) {
 
         if(this->callback) {
           this->callback();

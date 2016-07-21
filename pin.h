@@ -4,17 +4,15 @@
 namespace ts {
   typedef void (*PinCb)();
 
-  enum Edge { RISE, FALL };
-
   class Pin {
-    int pinN;
-    PinCb callback;
-    Edge edge;
-    bool oldValue;
+      int pinN;
+      PinCb callback;
+      int edge;
+      bool oldValue;
     public:
-    Pin(int);
-    void onEdge(Edge, PinCb);
-    void update();
+      Pin(int);
+      void onEdge(int, PinCb);
+      void update();
   };
 }
 

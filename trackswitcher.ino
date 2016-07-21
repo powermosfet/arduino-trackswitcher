@@ -13,7 +13,7 @@ ts::Motor switcherMotor(ts::A, ts::FORWARDS);
 ts::Pin irSensor(PIN_OBSTACLE_SENSOR);
 
 void setup() {
-  irSensor.onEdge(ts::FALL, [](){
+  irSensor.onEdge(FALLING, [](){
     switcherMotor.runFor(RUN_TIME, MOTOR_SPEED).then([](){
       switcherMotor.changeDirection();
     });
